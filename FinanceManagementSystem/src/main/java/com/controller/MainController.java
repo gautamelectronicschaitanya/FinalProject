@@ -14,7 +14,6 @@ import com.service.FmsService;
 @Controller
 public class MainController {
 
-	
 @Autowired
 FmsService service;
 	@RequestMapping("/buy")
