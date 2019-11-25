@@ -45,10 +45,5 @@ public class FmsService {
 
 	}
 	
-	public Card_Details dashboard(int cardid)
-	{
-		return null;
-	     
-	}
 
 }

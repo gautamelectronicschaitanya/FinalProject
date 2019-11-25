@@ -58,11 +58,11 @@ public class FmsRespository {
 		return lc;
 	}
 	
-	public List<Card_Details> getCardDetails(int id)
+	public List<Card_Details> getCardDetails(int userid)
 	{
-		String jpql = "select p from Card_Details as p where p.u=:id";
+		String jpql = "select p from Card_Details p where p.userprofile.userid=:id";
 		Query q = entityManager.createQuery(jpql);
-		q.setParameter("id",id);
+		q.setParameter("id",userid);
 		List<Card_Details> cd = q.getResultList();
 		System.out.println(cd.size());
 		return cd;

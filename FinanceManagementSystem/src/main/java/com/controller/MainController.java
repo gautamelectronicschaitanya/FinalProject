@@ -51,20 +51,30 @@ public class MainController {
 			int id = 0;
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
+			String name="";
 			List<Login_Credentials> lc = repository.getLoginDetails();
 			for (Login_Credentials l : lc) {
 				s = l.getUsername();
+				id=l.getUserprofile().getUserid();
 			}
-
-			Card_Details cd = service.dashboard(id);
-			System.out.println(cd.getCardstatus());
+			System.out.println(id);
+			List<Card_Details> cardDetails = repository.getCardDetails(id);
+			for(Card_Details ds: cardDetails)
+			{
+				System.out.println(ds.getTotalcredit());
+				name=ds.getUserprofile().getUsername();
+			}
 			boolean flag = service.loginVerify();
 			if (flag == true) {
 				map.addAttribute("credential", s);
+				map.addAttribute("card", cardDetails);
+				map.addAttribute("name",name);
 				return "dashboard.jsp";
 			} else
+			{
 				return "error.jsp";
 
+		}
 		}
 
 		@RequestMapping("/product_catalog")

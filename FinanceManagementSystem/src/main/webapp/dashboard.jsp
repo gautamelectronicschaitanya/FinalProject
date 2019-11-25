@@ -13,20 +13,46 @@
 	<h2>Welcome ${credential}</h2>
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
+			<th>Name</th>
 			<th>CARD NUMBER</th>
 			<th>VADIL TILL</th>
 			<TH>CARD TYPE</TH>
+			<TH>CARD STATUS</TH>
+			<th>TOTAL CREDIT</th>
 		</tr>
 
 		<tr>
-			<c:forEach var="v" items="${cardDetails}">
+			<td>${name}</td>
+			<c:forEach var="v" items="${card}">
 				<td>${v.cardno}</td>
 				<td>${v.validdate}</td>
-				<td>${v.cardtype}
+				<td>${v.cardtype}</td>
+				<td>${v.cardstatus }</td>
+				<td>${v.totalcredit }</td>
 				<td><a href="editemp/${emp.id}">Edit</a></td>
 				<td><a href="deleteemp/${emp.id}">Delete</a></td>
 		</tr>
 		</c:forEach>
+	</table>
+	
+	<h2>
+	product purchased
+	</h2>
+	<table  border="2" width="70%" cellpadding="2">
+	<tr>
+	<td>PRODUCT NAME</td>
+	<td>AMOUNT</td>
+	<td>PAID</td>
+	<td>BALANCE</td>
+	<th>
+	</tr>
+	<tr>
+	<c:forEach var="p" items="${product}">
+	<td></td>
+	
+	
+	</c:forEach>
+	</tr>
 	</table>
 </body>
 </html>
