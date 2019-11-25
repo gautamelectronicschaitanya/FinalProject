@@ -14,13 +14,13 @@ public class Product_Information {
 	@Id
 	@Column(name="P_ID")
 	private int pid;
-	@Column(name="PRODUCT_IMAGE")
+	@Column(name="PRODUCT_NAME")
 	private String productname;
 	@Column(name="P_INFO")
 	private String productinfo;
 	@Column(name="PRODUCT_AMOUNT")
 	private long amount;
-	@Column(name="PRODUCT_IMAGE",insertable = false, updatable = false)
+	@Column(name="PRODUCT_IMAGE")
 	private String image;
 		
 	

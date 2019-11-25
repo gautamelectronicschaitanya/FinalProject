@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -32,13 +33,14 @@ public class Card_Details {
 	private long totalcredit;
 	@Column(name="USED_CREDIT")
 	private long usedcredit;
-	@Column(name="REMAINING_CREDIT")
-	private long remaincredit;
+//	@Column(name="REMAINING_CREDIT")
+//	private long remaincredit;
+//	
 	
-	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="USER_ID")
 	private User_Profile userprofile;
+	
 	public User_Profile getUserprofile() {
 		return userprofile;
 	}
@@ -105,12 +107,12 @@ public class Card_Details {
 	public void setUsedcredit(long usedcredit) {
 		this.usedcredit = usedcredit;
 	}
-	public long getRemaincredit() {
-		return remaincredit;
-	}
-	public void setRemaincredit(long remaincredit) {
-		this.remaincredit = remaincredit;
-	}
+//	public long getRemaincredit() {
+//		return remaincredit;
+//	}
+//	public void setRemaincredit(long remaincredit) {
+//		this.remaincredit = remaincredit;
+//	}
 	
 	
 

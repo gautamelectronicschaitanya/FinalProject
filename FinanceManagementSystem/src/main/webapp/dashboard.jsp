@@ -9,17 +9,20 @@
 </head>
 <body>
 	<h1>Dashboard</h1>
-		<a href="product_catalog">Products</a>
+	<a href="product_catalog">Products</a>
+	<h2>Welcome ${credential}</h2>
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
-			<th>Id</th>
-			<th>Name</th>
+			<th>CARD NUMBER</th>
+			<th>VADIL TILL</th>
+			<TH>CARD TYPE</TH>
 		</tr>
 
 		<tr>
-			<c:forEach var="v" items="${list}">
-				<td>${v.userid}</td>
-				<td>${v.username}</td>
+			<c:forEach var="v" items="${cardDetails}">
+				<td>${v.cardno}</td>
+				<td>${v.validdate}</td>
+				<td>${v.cardtype}
 				<td><a href="editemp/${emp.id}">Edit</a></td>
 				<td><a href="deleteemp/${emp.id}">Delete</a></td>
 		</tr>

@@ -25,9 +25,9 @@
 		<property name="driverClassName"
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url"
-			value="jdbc:oracle:thin:@192.168.100.218:1521:xe" />
-		<property name="username" value="teamDb" />
-		<property name="password" value="admin" />
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="system" />
+		<property name="password" value="qwerty" />
 	</bean>
 
 	<!-- hibernate configuration -->

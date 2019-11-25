@@ -32,5 +32,23 @@ public class FmsService {
 		return userprofile;
 	}
 
+	public boolean loginVerify() {
+		boolean flag = false;
+		List<Login_Credentials> loginCredentails = fmsrepository.getLoginDetails();
+		for (Login_Credentials lc : loginCredentails)
+			if (lc.getUsername().equals("gautam") && lc.getPassword().equals("qwerty")) {
+				flag = true;
+			} else {
+				flag = false;
+			}
+		return flag;
+
+	}
+	
+	public Card_Details dashboard(int cardid)
+	{
+		return null;
+	     
+	}
 
 }

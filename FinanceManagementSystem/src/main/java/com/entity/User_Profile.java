@@ -44,7 +44,21 @@ public class User_Profile {
 	@OneToMany(mappedBy="userprofile",cascade=CascadeType.ALL)
 	private List<Emi_Details> emidetails;
 	
+	@OneToOne(mappedBy="userprofile",cascade=CascadeType.ALL)
+	private Card_Details cardDetails;
 	
+
+	public Card_Details getCardDetails() {
+		return cardDetails;
+	}
+
+
+
+	public void setCardDetails(Card_Details cardDetails) {
+		this.cardDetails = cardDetails;
+	}
+
+
 
 	public int getAccountno() {
 		return accountno;

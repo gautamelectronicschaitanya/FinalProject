@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.entity.Card_Details;
 import com.entity.Emi_Details;
 import com.entity.Login_Credentials;
 import com.entity.Registeration;
@@ -27,6 +28,9 @@ public class MainController {
 	@Autowired
 	FmsService service;
 
+	@Autowired
+	FmsRespository repository;
+
 	@Controller
 	public class RegisterController {
 
@@ -35,27 +39,37 @@ public class MainController {
 			service.register(reg);
 			return "login.jsp";
 		}
-		
+
 		@RequestMapping("/login")
-		public String login()
-		{
+		public String PreLogin() {
 			return "login.jsp";
 		}
-		
+
 		@RequestMapping(path = "/dashboard", method = RequestMethod.POST)
-		public String register(HttpServletRequest request) {
-			
-			
-			return "dashboard.jsp";
-			
+		public String login(HttpServletRequest request, Model map) {
+			String s = "";
+			int id = 0;
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			List<Login_Credentials> lc = repository.getLoginDetails();
+			for (Login_Credentials l : lc) {
+				s = l.getUsername();
+			}
+
+			Card_Details cd = service.dashboard(id);
+			System.out.println(cd.getCardstatus());
+			boolean flag = service.loginVerify();
+			if (flag == true) {
+				map.addAttribute("credential", s);
+				return "dashboard.jsp";
+			} else
+				return "error.jsp";
+
 		}
 
 		@RequestMapping("/product_catalog")
 		public String productcatalog() {
-			
-			
-			
-			
+
 			return "product_catalog.jsp";
 		}
 

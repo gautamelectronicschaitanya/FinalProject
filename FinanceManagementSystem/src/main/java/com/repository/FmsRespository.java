@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.entity.Card_Details;
 import com.entity.Login_Credentials;
 import com.entity.User_Profile;
 
@@ -55,6 +56,16 @@ public class FmsRespository {
 		List<Login_Credentials> lc = q.getResultList();
 		System.out.println("repo"+lc.size());
 		return lc;
+	}
+	
+	public List<Card_Details> getCardDetails(int id)
+	{
+		String jpql = "select p from Card_Details as p where p.u=:id";
+		Query q = entityManager.createQuery(jpql);
+		q.setParameter("id",id);
+		List<Card_Details> cd = q.getResultList();
+		System.out.println(cd.size());
+		return cd;
 	}
  
 		       
