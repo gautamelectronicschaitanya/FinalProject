@@ -16,7 +16,7 @@
 
 	<!-- Provide support for component scanning -->
 	<context:component-scan
-		base-package="com.controller,com.service,com.repository" />
+		base-package="com.service,com.repository" />
 
 	<!-- Datasource Configuration -->
 	<bean id="dataSource"
@@ -25,9 +25,9 @@
 		<property name="driverClassName"
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url"
-			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="system" />
-		<property name="password" value="qwerty" />
+			value="jdbc:oracle:thin:@192.168.100.218:1521:xe" />
+		<property name="username" value="teamDb" />
+		<property name="password" value="admin" />
 	</bean>
 
 	<!-- hibernate configuration -->
@@ -46,23 +46,16 @@
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2dll.auto">update</prop>
 			</props>
 		</property>
 	</bean>
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSizePerFile" value="52428800" />
-	</bean>
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="myEmf" />
 	</bean>
 
-
-	<!--Provide support for conversion, formatting and validation -->
-	<mvc:annotation-driven />
+	<tx:annotation-driven/>
 
 </beans>  

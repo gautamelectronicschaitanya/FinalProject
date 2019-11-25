@@ -4,12 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKey;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
@@ -25,25 +30,27 @@ public class User_Profile {
 	private String email;
 	@Column(name = "PHONE_NO")
 	private long phoneno;
-	@Column(name = "PASSWORD")
-	private String password;
 	@Column(name = "ADDRESS")
 	private String address;
 	@Column(name = "ACCOUNT_NO")
 	private int accountno;
-	@Column(name = "CARD_TPE")
+	@Column(name = "CARD_TYPE")
 	private String cardtype;
 	@Column(name = "BANK_NAME")
 	private String bankname;
-	@Column(name = "IFSC_CODE")
+	@Column(name = "IFSC")
 	private String ifsccode;
 
-	@OneToMany
+	@OneToMany(mappedBy="userprofile",cascade=CascadeType.ALL)
 	private List<Emi_Details> emidetails;
+	
+	
 
 	public int getAccountno() {
 		return accountno;
 	}
+
+	
 
 	public void setAccountno(int accountno) {
 		this.accountno = accountno;
@@ -111,14 +118,6 @@ public class User_Profile {
 
 	public void setPhoneno(long phoneno) {
 		this.phoneno = phoneno;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getAddress() {

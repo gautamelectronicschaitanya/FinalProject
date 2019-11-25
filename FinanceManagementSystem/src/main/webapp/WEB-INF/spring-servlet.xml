@@ -26,7 +26,7 @@
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url"
 			value="jdbc:oracle:thin:@192.168.100.218:1521:xe" />
-		<property name="username" value="teamdb" />
+		<property name="username" value="teamDb" />
 		<property name="password" value="admin" />
 	</bean>
 
@@ -46,7 +46,6 @@
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2dll.auto">update</prop>
 			</props>
 		</property>
 	</bean>

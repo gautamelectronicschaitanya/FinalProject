@@ -9,6 +9,7 @@
 </head>
 <body>
 	<h1>Dashboard</h1>
+		<a href="product_catalog">Products</a>
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
 			<th>Id</th>

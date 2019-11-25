@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>order details</title>
 </head>
 <body>
-<h1>Welcome to FMS</h1>
-<a href="login">login</a>
-<a href ="register.jsp">Register</a>
+<a href="dashboard">dashboard</a>
 </body>
 </html>

@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome to FMS</h1>
-<a href="login">login</a>
-<a href ="register.jsp">Register</a>
+<h1>invalid credentails</h1>
 </body>
 </html>

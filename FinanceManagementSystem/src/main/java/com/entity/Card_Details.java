@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Card_Details {
 	
 	@Id
-	@Column(name="CARD_NO")
+	@Column(name="CARD_NUMBER")
 	private int cardno;
 	@Column(name="CARD_TYPE")
 	private String cardtype;
@@ -26,19 +26,30 @@ public class Card_Details {
 	private String cardstatus;
 	@Column(name="ISSUE_DATE")
 	private LocalDate issuedate;
-	@Column(name="VALID_DATE")
+	@Column(name="VALID_TILL")
 	private LocalDate validdate;
 	@Column(name="TOTAL_CREDIT")
 	private long totalcredit;
 	@Column(name="USED_CREDIT")
 	private long usedcredit;
-	@Column(name="REMAIN_CREDIT")
+	@Column(name="REMAINING_CREDIT")
 	private long remaincredit;
+	
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID")
 	private User_Profile userprofile;
-	 
+	public User_Profile getUserprofile() {
+		return userprofile;
+	}
+	public void setUserprofile(User_Profile userprofile) {
+		this.userprofile = userprofile;
+	}
+	
+	
+//	@OneToOne
+//	private Emi_Details emiDetails;
+//	 
 	
 	public String getCardtype() {
 		return cardtype;
@@ -46,12 +57,12 @@ public class Card_Details {
 	public void setCardtype(String cardtype) {
 		this.cardtype = cardtype;
 	}
-	public User_Profile getUserprofile() {
-		return userprofile;
-	}
-	public void setUserprofile(User_Profile userprofile) {
-		this.userprofile = userprofile;
-	}
+//	public User_Profile getUserprofile() {
+//		return userprofile;
+//	}
+//	public void setUserprofile(User_Profile userprofile) {
+//		this.userprofile = userprofile;
+//	}
 	public int getCardno() {
 		return cardno;
 	}

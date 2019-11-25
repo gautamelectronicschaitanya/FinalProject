@@ -8,6 +8,6 @@
 </head>
 <body>
 <p>Congratulatinons</p>
-<a href="dashboard">dashboard</a>
+<a href="order_details">order Details</a>
 </body>
 </html>
