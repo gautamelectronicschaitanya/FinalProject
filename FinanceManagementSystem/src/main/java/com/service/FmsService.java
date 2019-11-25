@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entity.Bank_Details;
+
 import com.entity.Card_Details;
 import com.entity.Emi_Details;
 import com.entity.Product_Information;
