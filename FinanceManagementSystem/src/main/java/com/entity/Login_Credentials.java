@@ -54,6 +54,14 @@ public class Login_Credentials {
 	public void setUserprofile(User_Profile userprofile) {
 		this.userprofile = userprofile;
 	}
+
+	@Override
+	public String toString() {
+		return "Login_Credentials [loginid=" + loginid + ", username=" + username + ", password=" + password
+				+ ", userprofile=" + userprofile + "]";
+	}
+	
+	
 	
 	
 	
