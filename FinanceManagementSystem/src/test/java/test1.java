@@ -74,7 +74,10 @@ public class test1 {
        List<Login_Credentials> ll = fms.getLoginDetails();
 		for(Login_Credentials k:ll)
 		{
-			System.out.println(k.getUsername());
+			if(k.getUsername().equals("gautam"))
+			{
+				System.out.println("true");
+			}
 		}
 
 	}
