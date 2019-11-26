@@ -66,7 +66,7 @@ public class FmsRespository {
 	}
 	
 //	public List<Product_Purchase_Information>(int cardid)
-//	{
+//	{ 
 //		String jpql = "select p from Product_Purchase_Information p where p.carddetails.cardno=:cardid";
 //		Query q = entityManager.createQuery(jpql);
 //		q.setParameter("cardid", cardid);
