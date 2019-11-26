@@ -14,8 +14,6 @@ public class Registeration {
 	@Id
 	@GeneratedValue
 	private int uID;
-	
-	
 	private String name;
 	private String username;
 	private String password;

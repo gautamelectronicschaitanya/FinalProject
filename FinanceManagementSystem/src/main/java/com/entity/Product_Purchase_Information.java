@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,16 +18,9 @@ import javax.persistence.Table;
 public class Product_Purchase_Information {
 
 	@Id
-	@Column(name = "PRODUCT_ID")
+	@GeneratedValue
+	@Column(name = "PRODUCT_PURCHASE_ID")
 	private int productpid;
-	@Column(name = "PRODUCT_NAME")
-	private String product_name;
-	@Column(name = "AMOUNT")
-	private long amount;
-	@Column(name = "PAID_AMOUNT")
-	private long paidamount;
-	@Column(name = "BALANCE_AMOUNT")
-	private long balanceamount;
 
 	public Product_Information getProductinformation() {
 		return productinformation;
@@ -60,36 +54,6 @@ public class Product_Purchase_Information {
 		this.productpid = productpid;
 	}
 
-	public String getProduct_name() {
-		return product_name;
-	}
-
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-
-	public long getAmount() {
-		return amount;
-	}
-
-	public void setAmount(long amount) {
-		this.amount = amount;
-	}
-
-	public long getPaidamount() {
-		return paidamount;
-	}
-
-	public void setPaidamount(long paidamount) {
-		this.paidamount = paidamount;
-	}
-
-	public long getBalanceamount() {
-		return balanceamount;
-	}
-
-	public void setBalanceamount(long balanceamount) {
-		this.balanceamount = balanceamount;
-	}
+	
 
 }

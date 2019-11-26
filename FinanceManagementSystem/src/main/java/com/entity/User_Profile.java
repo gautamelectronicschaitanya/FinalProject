@@ -41,9 +41,6 @@ public class User_Profile {
 	@Column(name = "IFSC")
 	private String ifsccode;
 
-	@OneToMany(mappedBy="userprofile",cascade=CascadeType.ALL)
-	private List<Emi_Details> emidetails;
-	
 	@OneToOne(mappedBy="userprofile",cascade=CascadeType.ALL)
 	private Card_Details cardDetails;
 	
@@ -92,14 +89,6 @@ public class User_Profile {
 
 	public void setIfsccode(String ifsccode) {
 		this.ifsccode = ifsccode;
-	}
-
-	public List<Emi_Details> getEmidetails() {
-		return emidetails;
-	}
-
-	public void setEmidetails(List<Emi_Details> emidetails) {
-		this.emidetails = emidetails;
 	}
 
 	public int getUserid() {

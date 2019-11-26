@@ -64,4 +64,6 @@
 		<property name="entityManagerFactory" ref="myEmf" />
 	</bean>
 
+	<tx:annotation-driven/>
+
 </beans>  

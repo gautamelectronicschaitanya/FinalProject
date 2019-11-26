@@ -32,11 +32,10 @@ public class FmsService {
 		return userprofile;
 	}
 
-	public boolean loginVerify() {
+	public boolean loginVerify(String username,String password) {
 		boolean flag = false;
-		List<Login_Credentials> loginCredentails = fmsrepository.getLoginDetails();
-		for (Login_Credentials lc : loginCredentails)
-			if (lc.getUsername().equals("gautam") && lc.getPassword().equals("qwerty")) {
+		Login_Credentials loginCredentails = fmsrepository.getLoginDetails();
+			if (loginCredentails.getUsername().equals(username) && loginCredentails.getPassword().equals(password)) {
 				flag = true;
 			} else {
 				flag = false;

@@ -14,6 +14,7 @@ import com.entity.Product_Information;
 import com.entity.Product_Purchase_Information;
 import com.entity.User_Profile;
 import com.repository.FmsRespository;
+import com.service.EmiProcessors;
 
 public class test1 {
 	@Test
@@ -41,7 +42,7 @@ public class test1 {
 		// emi.setInstallment(10000);
 		emi.setEnddate(enddate);
 		emi.setEmioption("THREE MONTH");
-		emi.setUserprofile(ud);
+		
 		fms.add(ud);
 
 	}
@@ -71,14 +72,18 @@ public class test1 {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
 		FmsRespository fms = ctx.getBean(FmsRespository.class);
-		List<Login_Credentials> ll = fms.getLoginDetails();
-		for (Login_Credentials k : ll) {
-			if (k.getUsername().equals("gautam")) {
+		Login_Credentials l = fms.getLoginDetails();
+		
+			if (l.getUsername().equals("gautam")) {
 				System.out.println("true");
 			}
+			else
+			{
+				System.out.println("false");
+			}
+				
 		}
 
-	}
 
 	@Test
 	public void pushproduct() {
@@ -94,10 +99,6 @@ public class test1 {
 		info.setProductinfo("Dell laptop 3542");
 		info.setAmount(30000);
 		info.setImage("laptop.jpg");
-		ppinfo.setAmount(30000);
-		ppinfo.setBalanceamount(50000);
-		ppinfo.setPaidamount(10000);
-		ppinfo.setProduct_name("dell laptop");
 		ppinfo.setProductpid(01);
 		ppinfo.setProductinformation(info);
 		cardDetails.setCardno(111);
@@ -116,7 +117,7 @@ public class test1 {
 	public void DashBoard() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
 		FmsRespository fms = ctx.getBean(FmsRespository.class);
-		Card_Details dd = (Card_Details) fms.fetchById(Card_Details.class, 242);
+		Card_Details dd = (Card_Details) fms.fetchById(Card_Details.class, 4545);
 		int s = dd.getUserprofile().getUserid();
 		System.out.println(dd.getCardno());
 		System.out.println(dd.getValiddate());
@@ -125,12 +126,15 @@ public class test1 {
 
 	}
 
+	@Test
 	public void DashBoard2() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
 		FmsRespository fms = ctx.getBean(FmsRespository.class);
-		User_Profile dd = (User_Profile) fms.fetchById(User_Profile.class, 101);
-		System.out.println(dd.getUserid());
+		Card_Details card_Details = fms.getCardDetails(101);
+		System.out.println(card_Details.getCardtype());
 	}
+	
+	
 	@Test
 	public void Card() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
@@ -158,28 +162,75 @@ public class test1 {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
 		FmsRespository fms = ctx.getBean(FmsRespository.class);
-		List<Card_Details> p = fms.getCardDetails(107);
-		for(Card_Details ds:p)
-		{
+		Card_Details ds = fms.getCardDetails(107);
+		
+		
 		System.out.println(ds.getUserprofile().getUserid());
 		System.out.println(ds.getCardstatus());
+		System.out.println(ds.getRemaincredit());
 	}
-	}
+	
 	
 	
 	@Test
-	public void ProductDetail()
+	public void ProductpurchaseDetail()
 	{
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
 		FmsRespository fms = ctx.getBean(FmsRespository.class);
-		List<Product_Purchase_Information> p = fms.getProductDetail(4545);
+		List<Product_Purchase_Information> p = fms.getProductPurchaseDetail(4545);
 		for(Product_Purchase_Information ds:p)
 		{
-		System.out.println(ds.getAmount());
+	     System.out.println(ds.getProductinformation().getPid());
 		System.out.println(ds.getCarddetails().getCardstatus());
 	}
+	}
+		
+		@Test
+		public void ProductDetail()
+		{
+
+			ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+			FmsRespository fms = ctx.getBean(FmsRespository.class);
+			Product_Information p = fms.getProductDetail(101);
+			
+			
+		     System.out.println(p.getProductname());
+			System.out.println(p.getAmount());
+			
+		
+		}
+			
+			
+			@Test
+			public void EmiDetail()
+			{
+
+				ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+				FmsRespository fms = ctx.getBean(FmsRespository.class);
+				List<Emi_Details>emi = fms.getEmiDetails(4545);
+				for(Emi_Details emid:emi)
+				{
+			     System.out.println(emid.getStartdate());
+				System.out.println(emid.getTransid());
+				
+			}
+				
+				
 		
 	}
-}
+			
+			
+			@Test
+			public void update()
+			{
+
+			ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+				EmiProcessors emi = ctx.getBean(EmiProcessors.class);
+				emi.emiGenerator(3, 101, 101);
+				
+				
+			}
+//}
+}                    
 	

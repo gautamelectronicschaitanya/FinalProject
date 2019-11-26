@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.awt.Dialog.ModalExclusionType;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import com.entity.Login_Credentials;
 import com.entity.Registeration;
 import com.entity.User_Profile;
 import com.repository.FmsRespository;
+import com.service.EmiProcessors;
 import com.service.FmsService;
 
 @Controller
@@ -30,6 +32,9 @@ public class MainController {
 
 	@Autowired
 	FmsRespository repository;
+
+	@Autowired
+	EmiProcessors emiprocessor;
 
 	@Controller
 	public class RegisterController {
@@ -46,56 +51,51 @@ public class MainController {
 		}
 
 		@RequestMapping(path = "/dashboard", method = RequestMethod.POST)
-		public String login(HttpServletRequest request, Model map) {
+		public String login(HttpServletRequest request, ModelMap map) {
 			String s = "";
 			int id = 0;
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			String name="";
-			List<Login_Credentials> lc = repository.getLoginDetails();
-			for (Login_Credentials l : lc) {
-				s = l.getUsername();
-				id=l.getUserprofile().getUserid();
-			}
-			System.out.println(id);
-			List<Card_Details> cardDetails = repository.getCardDetails(id);
-			for(Card_Details ds: cardDetails)
-			{
-				System.out.println(ds.getTotalcredit());
-				name=ds.getUserprofile().getUsername();
-			}
-			boolean flag = service.loginVerify();
+			String name = "";
+
+			Login_Credentials lc = repository.getLoginDetails();
+
+			Card_Details card_Details = repository.getCardDetails(101);
+			System.out.println(card_Details.getCardtype());
+			boolean flag = service.loginVerify(username, password);
+
 			if (flag == true) {
-				map.addAttribute("credential", s);
-				map.addAttribute("card", cardDetails);
-				map.addAttribute("name",name);
-				return "dashboard.jsp";
-			} else
-			{
+			    map.put("cardD", card_Details);
+				map.put("name", name);
+				{
+					return "dashboard.jsp";
+				}
+
+			} else {
 				return "error.jsp";
 
-		}
+			}
 		}
 
-		@RequestMapping("/product_catalog")
+		@RequestMapping(path="/product_catalog")
 		public String productcatalog() {
 
 			return "product_catalog.jsp";
 		}
 
-		@RequestMapping("/paymentgateway")
+		@RequestMapping(path="/paymentgateway")
 		public String paymentgateway() {
+
 			return "paymentgateway.jsp";
 		}
 
-		@RequestMapping("/conformation")
-		public String Conformation() {
-			return "conformation.jsp";
-		}
+		@RequestMapping(path="/orderdetails", method = RequestMethod.POST)
+		public String Conformation(@RequestParam("emioption") int emioption, @RequestParam("productid") int productid,
+				@RequestParam("userid") int userid, ModelMap map) {
+			Emi_Details emi = emiprocessor.emiGenerator(emioption, productid, userid);
+			map.put("emi", emi);
 
-		@RequestMapping("/orderdetails")
-		public String orderdetails() {
-			return "order_details.jsp";
+			return "orderdetails.jsp";
 		}
 
 	}

@@ -33,8 +33,8 @@ public class Card_Details {
 	private long totalcredit;
 	@Column(name="USED_CREDIT")
 	private long usedcredit;
-//	@Column(name="REMAINING_CREDIT")
-//	private long remaincredit;
+	@Column(name="REMAINING_CREDIT")
+	private long remaincredit;
 //	
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -48,10 +48,7 @@ public class Card_Details {
 		this.userprofile = userprofile;
 	}
 	
-	
-//	@OneToOne
-//	private Emi_Details emiDetails;
-//	 
+ 
 	
 	public String getCardtype() {
 		return cardtype;
@@ -107,12 +104,12 @@ public class Card_Details {
 	public void setUsedcredit(long usedcredit) {
 		this.usedcredit = usedcredit;
 	}
-//	public long getRemaincredit() {
-//		return remaincredit;
-//	}
-//	public void setRemaincredit(long remaincredit) {
-//		this.remaincredit = remaincredit;
-//	}
+	public long getRemaincredit() {
+		return remaincredit;
+	}
+	public void setRemaincredit(long remaincredit) {
+		this.remaincredit = remaincredit;
+	}
 	
 	
 

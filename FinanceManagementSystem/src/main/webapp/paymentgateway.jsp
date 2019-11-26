@@ -8,18 +8,12 @@
 <title>Payment Method</title>
 </head>
 <body>
-	<a href="conformation">Choose your payment method</a>
-
-	<form:form action="submitForm" modelAttribute="reservation">  
-        EMI OPTION:   
-        THREE MONTH<form:radiobutton path="Gender" value="THREEM" />  
-        FOUR MONTH<form:radiobutton path="Gender" value="FOURM" />
+	<h1>Choose your emi-option</h1>
+	<form action="orderdetails" method="post">  
+          Emi opntion:<input type="text" name="emioption"></br>
+          Product Id:<input type="text" name="productid"></br>
+          User Id:<input type="text" name="userid"></br>        
 		<input type="submit" value="Submit" />
-	</form:form>
-
-
-
-
-
+	</form>
 </body>
 </html>

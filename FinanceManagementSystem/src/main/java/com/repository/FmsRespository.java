@@ -12,7 +12,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.entity.Card_Details;
+import com.entity.Emi_Details;
 import com.entity.Login_Credentials;
+import com.entity.Product_Information;
 import com.entity.Product_Purchase_Information;
 import com.entity.User_Profile;
 
@@ -48,34 +50,55 @@ public class FmsRespository {
 	}
 
 	@Transactional
-	public List<Login_Credentials> getLoginDetails() {
+	public Login_Credentials getLoginDetails() {
 		String Login_Credentails = "select l from Login_Credentials l";
 		Query q = entityManager.createQuery(Login_Credentails);
-		List<Login_Credentials> lc = q.getResultList();
-		System.out.println("repo" + lc.size());
+		Login_Credentials lc = (Login_Credentials) q.getSingleResult();
 		return lc;
 	}
-
-	public List<Card_Details> getCardDetails(int userid) {
+  
+	@Transactional
+	public Card_Details getCardDetails(int userid) {
 		String jpql = "select p from Card_Details p where p.userprofile.userid=:id";
 		Query q = entityManager.createQuery(jpql);
 		q.setParameter("id", userid);
-		List<Card_Details> cd = q.getResultList();
-		System.out.println(cd.size());
+		Card_Details cd =(Card_Details) q.getSingleResult();				
 		return cd;
 	}
-	
-	public List<Product_Purchase_Information> getProductDetail(int cardid)
-	{ 
+     
+	@Transactional
+	public List<Product_Purchase_Information> getProductPurchaseDetail(int cardid) {
 		String jpql = "select p from Product_Purchase_Information p where p.carddetails.cardno=:cardid";
 		Query q = entityManager.createQuery(jpql);
 		q.setParameter("cardid", cardid);
 		List<Product_Purchase_Information> pi = q.getResultList();
-//check
+		// check
 		System.out.println(pi.size());
-		return pi;	
+		return pi;
+
+	}
+	
+    @Transactional
+	public Product_Information getProductDetail(int productid) {
+		String jpql = "select p from Product_Information p where p.id=:pid";
+		Query q = entityManager.createQuery(jpql);
+		q.setParameter("pid", productid);
+		Product_Information pi =  (Product_Information)q.getSingleResult();
+		return pi;
+
+	}
+	
+	@Transactional
+	public List<Emi_Details> getEmiDetails(int cardno)
+	{
+		String jpql = "select e from Emi_Details as e where e.carddetails.cardno=:cardno";
+		Query q = entityManager.createQuery(jpql);
+		q.setParameter("cardno", cardno);
+		List<Emi_Details> emi = q.getResultList();
+		// check
+		System.out.println(emi.size());
+		return emi;
 		
 	}
-
 
 }

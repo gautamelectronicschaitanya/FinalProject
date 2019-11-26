@@ -23,16 +23,16 @@
 
 		<tr>
 			<td>${name}</td>
-			<c:forEach var="v" items="${card}">
-				<td>${v.cardno}</td>
-				<td>${v.validdate}</td>
-				<td>${v.cardtype}</td>
-				<td>${v.cardstatus }</td>
-				<td>${v.totalcredit }</td>
+			
+				<td>${cardD.cardno}</td>
+				<td>${cardD.validdate}</td>
+				<td>${cardD.cardtype}</td>
+				<td>${cardD.cardstatus }</td>
+				<td>${cardD.totalcredit }</td>
 				<td><a href="editemp/${emp.id}">Edit</a></td>
 				<td><a href="deleteemp/${emp.id}">Delete</a></td>
 		</tr>
-		</c:forEach>
+		
 	</table>
 	
 	<h2>
