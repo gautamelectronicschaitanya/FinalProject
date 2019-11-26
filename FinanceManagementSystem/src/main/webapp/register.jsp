@@ -7,7 +7,54 @@
 <title>Insert title here</title>
 </head>
 <body>
-<body>
+<style>
+h1 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+	background-color: #0066cc;
+	overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+	float: right;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+	background-color: #66b3ff;
+	color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+	background-color: #66b3ff;
+	color: white;
+}
+</style>
+	<div class="topnav">
+	    <a href="logout.jsp">Logout</a> 
+	    <a href="product_catalog">Products</a>
+		<a href="contact.jsp">Contact</a>
+		<a class="active" href="index.jsp">Home</a>
+	</div>
+
+
+
+
+
     <div id="register">
     <div id="user_register">
     <h3 align = "center">USER REGISTERATION FORM</h3>

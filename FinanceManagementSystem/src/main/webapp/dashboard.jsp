@@ -56,9 +56,9 @@ h2 {
 	</div>
 
 	<h1 align="center">Dashboard</h1>
-	
 	<h2 align="center">Welcome ${name}</h2>
-	<table align="center" border="1" width="10%" cellpadding="20">
+	<h3 align="center">Your EMI CARD DETAILS</h3>
+	<table align="center" border="2" width="90%" cellpadding="30">
 		<tr>
 
 			<th>CARD NUMBER</th>

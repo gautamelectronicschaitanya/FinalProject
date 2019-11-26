@@ -52,15 +52,19 @@ h2 {
 		<a class="active" href="index.jsp">Home</a>
 	</div>
 
-<h1>View Order</h1>
+<h2 align="center" style="font-family:font-family: 'Open Sans', sans-serif;">View EMI Transaction</h2>
 
 
 
 
-<table>
+<table align="center" border="2" width="90%" cellpadding="30">
 <tr>
-
-<td>${emi.emioption}</td>
+<td>EMI OPTIONS BY MONTHS</td>
+<td>LAST DATE</td>
+<td>PAID AMOUNT</td>
+<td>BALANCE AMOUNT</td>
+</tr>
+<tr>
 <td>${emi.emioption}</td>
 <td>${emi.enddate}</td>
 <td>${emi.paidamount}</td>
