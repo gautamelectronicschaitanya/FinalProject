@@ -7,52 +7,78 @@
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
 </head>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+	rel="stylesheet">
 <body>
-	<h1>Dashboard</h1>
-	<a href="product_catalog">Products</a>
-	<h2>Welcome ${credential}</h2>
-	<table border="2" width="70%" cellpadding="2">
+	<style>
+h1 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+	background-color: #0066cc;
+	overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+	float: right;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+	background-color: #66b3ff;
+	color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+	background-color: #66b3ff;
+	color: white;
+}
+</style>
+	<div class="topnav">
+	    <a href="logout.jsp">Logout</a> 
+	    <a href="product_catalog">Products</a>
+		<a href="contact.jsp">Contact</a>
+		<a class="active" href="index.jsp">Home</a>
+	</div>
+
+	<h1 align="center">Dashboard</h1>
+	
+	<h2 align="center">Welcome ${name}</h2>
+	<table align="center" border="1" width="10%" cellpadding="20">
 		<tr>
-			<th>Name</th>
+
 			<th>CARD NUMBER</th>
+			<th>ISSUE DATE</th>
 			<th>VADIL TILL</th>
 			<TH>CARD TYPE</TH>
 			<TH>CARD STATUS</TH>
-			<th>TOTAL CREDIT</th>
+			<th>CREDIT LIMIT</th>
+
 		</tr>
 
 		<tr>
-			<td>${name}</td>
-			
-				<td>${cardD.cardno}</td>
-				<td>${cardD.validdate}</td>
-				<td>${cardD.cardtype}</td>
-				<td>${cardD.cardstatus }</td>
-				<td>${cardD.totalcredit }</td>
-				<td><a href="editemp/${emp.id}">Edit</a></td>
-				<td><a href="deleteemp/${emp.id}">Delete</a></td>
+			<td>${cardD.cardno}</td>
+			<td>${cardD.issuedate}</td>
+			<td>${cardD.validdate}</td>
+			<td>${cardD.cardtype}</td>
+			<td>${cardD.cardstatus}</td>
+			<td>${cardD.cardlimit}</td>
 		</tr>
-		
-	</table>
-	
-	<h2>
-	product purchased
-	</h2>
-	<table  border="2" width="70%" cellpadding="2">
-	<tr>
-	<td>PRODUCT NAME</td>
-	<td>AMOUNT</td>
-	<td>PAID</td>
-	<td>BALANCE</td>
-	<th>
-	</tr>
-	<tr>
-	<c:forEach var="p" items="${product}">
-	<td></td>
-	
-	
-	</c:forEach>
-	</tr>
+
 	</table>
 </body>
 </html>

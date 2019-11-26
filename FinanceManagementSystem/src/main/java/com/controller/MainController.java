@@ -56,17 +56,17 @@ public class MainController {
 			int id = 0;
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			String name = "";
-
 			Login_Credentials lc = repository.getLoginDetails();
-
-			Card_Details card_Details = repository.getCardDetails(101);
+            int uid=lc.getUserprofile().getUserid();
+            String uname=lc.getUserprofile().getUsername();
+            System.out.println(uname);
+			Card_Details card_Details = repository.getCardDetails(uid);
 			System.out.println(card_Details.getCardtype());
 			boolean flag = service.loginVerify(username, password);
-
+            
 			if (flag == true) {
 			    map.put("cardD", card_Details);
-				map.put("name", name);
+				map.put("name", uname);
 				{
 					return "dashboard.jsp";
 				}
