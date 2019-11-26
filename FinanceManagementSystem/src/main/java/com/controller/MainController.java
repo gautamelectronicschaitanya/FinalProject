@@ -86,8 +86,8 @@ public class MainController {
 		    {
 		    	System.out.println(p1.getProductinfo());
 		    	pid=p1.getPid();
-		    	 map.put("pr", pid);
-				    map.put("p", p);
+		    	map.put("pr", pid);
+				map.put("p", p1);
 		    }
 		   
 			return "product_catalog.jsp";
