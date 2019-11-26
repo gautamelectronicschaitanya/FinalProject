@@ -65,19 +65,17 @@ public class FmsRespository {
 		return cd;
 	}
 	
-//	public List<Product_Purchase_Information>(int cardid)
-//	{ 
-//		String jpql = "select p from Product_Purchase_Information p where p.carddetails.cardno=:cardid";
-//		Query q = entityManager.createQuery(jpql);
-//		q.setParameter("cardid", cardid);
-//		List<Product_Purchase_Information> pi = q.getResultList();
-////check
-//		System.out.println(cd.size());
-//		
-//		
-//		
-//		System.out.println(pi);
-//	}
+	public List<Product_Purchase_Information> getProductDetail(int cardid)
+	{ 
+		String jpql = "select p from Product_Purchase_Information p where p.carddetails.cardno=:cardid";
+		Query q = entityManager.createQuery(jpql);
+		q.setParameter("cardid", cardid);
+		List<Product_Purchase_Information> pi = q.getResultList();
+//check
+		System.out.println(pi.size());
+		return pi;	
+		
+	}
 
 
 }

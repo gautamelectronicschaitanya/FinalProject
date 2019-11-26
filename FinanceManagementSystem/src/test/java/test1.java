@@ -165,6 +165,21 @@ public class test1 {
 		System.out.println(ds.getCardstatus());
 	}
 	}
+	
+	
+	@Test
+	public void ProductDetail()
+	{
+
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+		FmsRespository fms = ctx.getBean(FmsRespository.class);
+		List<Product_Purchase_Information> p = fms.getProductDetail(4545);
+		for(Product_Purchase_Information ds:p)
+		{
+		System.out.println(ds.getAmount());
+		System.out.println(ds.getCarddetails().getCardstatus());
+	}
 		
 	}
+}
 	
