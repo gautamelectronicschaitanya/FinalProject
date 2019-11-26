@@ -11,6 +11,10 @@
 <h1>View Order</h1>
 
 ${emi.emioption}
+${emi.emioption}
+${emi.enddate}
+${emi.paidamount}
+${emi.balanceamountt}
 
 
 </body>
