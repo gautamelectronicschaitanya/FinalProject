@@ -53,6 +53,7 @@ h2 {
 	</div>
 	
 	<table align="center" border="2" width="90%" cellpadding="30">
+	
   <tr>
     <th>PRODUCT ID</th>
     <th>PRODUCT NAME</th>
@@ -60,20 +61,20 @@ h2 {
     <th>PRODUCT AMOUNT</th>
     <th>PRODUCT IMAGE</th>
   </tr>
-  
+  <c:forEach var="p" items="${p}">
   <tr>
-    <td>${pr}</td>
-    <c:forEach var="p" items="{p}">            
-    <td>${p.productname}</td>
-    <td>${p.productinfo}</td>
-    <td>${p.amount}</td>
-    <td>${p.image}</td>
-     </c:forEach>
+    <td>${p.pid}</td>        
+    <td>${p.productname}</td></br>
+    <td>${p.productinfo}</td></br>
+    <td>${p.amount}</td></br>
+    <td>${p.image}</td></br>
+    
      <td><a href="paymentgateway">Buy-Now</a></td>
   </tr>
   
   <tr>
     </tr>
+     </c:forEach>
 </table>
 
 

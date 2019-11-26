@@ -82,13 +82,10 @@ public class MainController {
 		public String productcatalog(ModelMap map) {
 			int pid=0;
 			List<Product_Information> p =(List<Product_Information>) repository.getAllProductDetail();
-		    for(Product_Information p1:p)
-		    {
-		    	System.out.println(p1.getProductinfo());
-		    	pid=p1.getPid();
+		    
 		    	map.put("pr", pid);
-				map.put("p", p1);
-		    }
+				map.put("p", p);
+		    
 		   
 			return "product_catalog.jsp";
 		}
