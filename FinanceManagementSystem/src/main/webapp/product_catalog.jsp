@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,11 +51,32 @@ h2 {
 		<a href="contact.jsp">Contact</a>
 		<a class="active" href="index.jsp">Home</a>
 	</div>
+	
+	<table align="center" border="2" width="90%" cellpadding="30">
+  <tr>
+    <th>PRODUCT ID</th>
+    <th>PRODUCT NAME</th>
+    <th>PRODUCT INFO</th>
+    <th>PRODUCT AMOUNT</th>
+    <th>PRODUCT IMAGE</th>
+  </tr>
+  
+  <tr>
+    <td>${pr}</td>
+    <c:forEach var="p" items="{p}">            
+    <td>${p.productname}</td>
+    <td>${p.productinfo}</td>
+    <td>${p.amount}</td>
+    <td>${p.image}</td>
+     </c:forEach>
+     <td><a href="paymentgateway">Buy-Now</a></td>
+  </tr>
+  
+  <tr>
+    </tr>
+</table>
 
 
-
-<div>
-</div>
 <a href="paymentgateway">Buy-Now</a>
 </body>
 </html>

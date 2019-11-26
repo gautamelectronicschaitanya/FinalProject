@@ -87,6 +87,17 @@ public class FmsRespository {
 		return pi;
 
 	}
+    
+    
+    @Transactional
+  	public  List<Product_Information> getAllProductDetail() {
+  		String jpql = "select p from Product_Information p";
+  		Query q = entityManager.createQuery(jpql);
+  		List<Product_Information> pi =  (List<Product_Information>)q.getResultList();
+  		
+  		return pi;
+
+  	}
 	
 	@Transactional
 	public List<Emi_Details> getEmiDetails(int cardno)

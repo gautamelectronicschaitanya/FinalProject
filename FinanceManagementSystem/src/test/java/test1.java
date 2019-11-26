@@ -231,6 +231,25 @@ public class test1 {
 				
 				
 			}
+			
+			
+			
+			@Test
+			public void ProductDetailAll()
+			{
+
+				ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+				FmsRespository fms = ctx.getBean(FmsRespository.class);
+				List<Product_Information> p = fms.getAllProductDetail();
+			    for(Product_Information p1:p)
+			    {
+			    	System.out.println(p1.getProductinfo());
+			    }
+			
+				
+			
+			}
+			
 //}
 }                    
 	

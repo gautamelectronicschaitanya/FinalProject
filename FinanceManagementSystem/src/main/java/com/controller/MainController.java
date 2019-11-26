@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.entity.Card_Details;
 import com.entity.Emi_Details;
 import com.entity.Login_Credentials;
+import com.entity.Product_Information;
 import com.entity.Registeration;
 import com.entity.User_Profile;
 import com.repository.FmsRespository;
@@ -78,8 +79,17 @@ public class MainController {
 		}
 
 		@RequestMapping(path="/product_catalog")
-		public String productcatalog() {
-
+		public String productcatalog(ModelMap map) {
+			int pid=0;
+			List<Product_Information> p =(List<Product_Information>) repository.getAllProductDetail();
+		    for(Product_Information p1:p)
+		    {
+		    	System.out.println(p1.getProductinfo());
+		    	pid=p1.getPid();
+		    	 map.put("pr", pid);
+				    map.put("p", p);
+		    }
+		   
 			return "product_catalog.jsp";
 		}
 
